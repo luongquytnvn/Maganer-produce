@@ -1,0 +1,19 @@
+button {
+    border-radius: 4px;
+    background-color: cadetblue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+}
+td {
+    padding: 8px;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+}
+th,tr {
+    padding: 8px;
+}
+table {
+    text-align: center;
+}

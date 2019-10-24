@@ -3,60 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Ứng dụng quản lý sản phẩm</title>
+    <link rel="stylesheet" href="css.css">
 </head>
-<body onload="danhsachsanpham()">
-<h2>Add New Product</h2>
-<input type="text" value="New Product" id="idinput">
-<button onclick="addproduct()">Add</button>
+<body>
+
+<button style="display: block" onclick="main.addproducttable()" id="idaddtable">Add Product</button>
+<div style="border-radius: 5px;background-color: #f2f2f2;padding: 20px;width: 31%;display: none" id="iddivadd">
+    <h2>Add New Product</h2>
+    <input style="border-radius: 4px" type="text" id="idinput" placeholder="New Product">
+    <input type="file" id="idImage">
+    <br/>
+    <button style="border-radius: 4px;margin-top: 10px;margin-bottom: 10px;margin-right: 10px" onclick="main.addProduct()">Add</button>
+</div>
 <h2>Display All Product</h2>
-<div id="output"></div>
-<script>
-    let sanpham = ['Apple'];
-
-    function danhsachsanpham() {
-        let bangsanpham = '<table> <caption style="text-align: left">Product Name</caption> <caption id="idsoluong" style="text-align: right">5 Product</caption>'
-        for (i = 0; i < sanpham.length; i++) {
-            bangsanpham += '<tr>';
-            for (j = 0; j < 3; j++) {
-                if (j == 0) {
-                    bangsanpham += '<td width="200">' + sanpham[i] + '</td>';
-                } else if (j == 1) {
-                    bangsanpham += '<td>' + '<button id="' + i + j + '" value="' + i + '" type="button" onclick="editproduct(this)">Edit</button>' + '</td>';
-                } else {
-                    bangsanpham += '<td>' + '<button id="' + i + j + '" value="' + i + '" type="button" onclick="deleteproduct(this)">Delete</button>' + '</td>';
-                }
-            }
-            bangsanpham += '</tr>';
-        }
-        bangsanpham += '</table>';
-        document.getElementById('output').innerHTML = bangsanpham;
-        document.getElementById('idsoluong').innerHTML = sanpham.length + ' product';
-    }
-
-    function addproduct() {
-        let a = sanpham.indexOf(document.getElementById('idinput').value);
-        if (a === -1) {
-            sanpham.push(document.getElementById('idinput').value);
-            alert('Đã thêm sản phẩm mới: ' + sanpham[sanpham.length - 1]);
-            danhsachsanpham();
-        } else {
-            alert('Sản phẩm đã tồn tại');
-        }
-    }
-
-    function editproduct(a) {
-        edit = prompt('Sửa tên sản phẩm thành:');
-        sanpham[a.value] = edit;
-        danhsachsanpham();
-    }
-
-    function deleteproduct(b) {
-        for (let i = parseInt(b.value); i < sanpham.length; i++) {
-            sanpham[i] = a = sanpham[i + 1];
-        }
-        sanpham.pop();
-        danhsachsanpham()
-    }
-</script>
+<table style="border-collapse: collapse;width: 50%">
+    <tr>
+        <th style="text-align: left">Product Name</th>
+        <th colspan="2" style="text-align: right"><div id="countProduct"></div></th>
+    </tr>
+    <tbody id="idoutput"></tbody>
+</table>
+<div id="iddivedit" style="display: none;border-radius: 5px;background-color: #f2f2f2;padding: 10px;width: 31%">
+    <form id="idformEdit">
+        <h3>Edit Product</h3>
+        <input type="text" id="idEdit" placeholder="Edit Name">
+        <input type="file" id="ideditImage">
+        <br>
+        <button style="border-radius: 4px;margin-top: 10px;margin-bottom: 10px;margin-right: 10px" type="button" onclick="main.saveEdit()">Edit</button>
+    </form>
+</div>
+<script src="Main.js"></script>
 </body>
 </html>
