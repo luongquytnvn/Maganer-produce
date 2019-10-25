@@ -10,8 +10,8 @@ let main = new function () {
             table += '<td><button onclick="main.editProduct(' + i + ')">Edit</button></td>';
             table += '<td><button onclick="main.deleteProduct(' + i + ')">Delete</button></td>';
             table += '</tr>';
-
         }
+        document.getElementById('countProduct').innerHTML = this.name.length + ' Product';
         document.getElementById('idoutput').innerHTML = table;
     };
     this.addproducttable = function () {

@@ -6,20 +6,21 @@
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-
+<canvas id="myCanvas" style="border: 1px solid black;background-color: aliceblue" width="700" height="60"></canvas>
+<h2>Display All Product</h2>
 <button style="display: block" onclick="main.addproducttable()" id="idaddtable">Add Product</button>
-<div style="border-radius: 5px;background-color: #f2f2f2;padding: 20px;width: 31%;display: none" id="iddivadd">
+<div style="border-radius: 5px;background-color: #f2f2f2;padding: 10px;width: 31%;display: none" id="iddivadd">
     <h2>Add New Product</h2>
     <input style="border-radius: 4px" type="text" id="idinput" placeholder="New Product">
     <input type="file" id="idImage">
     <br/>
     <button style="border-radius: 4px;margin-top: 10px;margin-bottom: 10px;margin-right: 10px" onclick="main.addProduct()">Add</button>
 </div>
-<h2>Display All Product</h2>
+
 <table style="border-collapse: collapse;width: 50%">
     <tr>
         <th style="text-align: left">Product Name</th>
-        <th colspan="2" style="text-align: right"><div id="countProduct"></div></th>
+        <th colspan="3" style="text-align: right"><div id="countProduct"></div></th>
     </tr>
     <tbody id="idoutput"></tbody>
 </table>
@@ -32,6 +33,7 @@
         <button style="border-radius: 4px;margin-top: 10px;margin-bottom: 10px;margin-right: 10px" type="button" onclick="main.saveEdit()">Edit</button>
     </form>
 </div>
+    <script src="Canvas.js"></script>
 <script src="Main.js"></script>
 </body>
 </html>
